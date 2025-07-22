@@ -29,3 +29,8 @@ button {
   margin: 5px;
   padding: 10px;
 }
+
+.ring {
+  transition: transform 0.4s ease-in-out;
+  transform-origin: center center;
+}

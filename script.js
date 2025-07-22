@@ -1,14 +1,13 @@
 const ringStates = {
-  ring1: 0,
-  ring2: 0,
-  ring3: 0
+  ring1: 0
 };
 
 function rotateRing(id) {
   ringStates[id] = (ringStates[id] + 45) % 360;
-  document.getElementById(id).style.transform = `rotate(${ringStates[id]}deg)`;
-  checkSolution();
+  const element = document.getElementById(id);
+  element.style.transform = `rotate(${ringStates[id]}deg)`;
 }
+
 
 function checkSolution() {
   // Example winning condition: 90, 180, 270
