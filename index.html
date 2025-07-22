@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rune Puzzle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Rotate the Rune Rings</h1>
+  <div class="puzzle-container">
+    <img src="background.png" class="background">
+    <img src="ring1.png" id="ring1" class="ring">
+    <img src="ring2.png" id="ring2" class="ring">
+    <img src="ring3.png" id="ring3" class="ring">
+  </div>
+
+  <div class="controls">
+    <button onclick="rotateRing('ring1')">Rotate Outer Ring</button>
+    <button onclick="rotateRing('ring2')">Rotate Middle Ring</button>
+    <button onclick="rotateRing('ring3')">Rotate Inner Ring</button>
+  </div>
+
+  <p id="result"></p>
+
+  <script src="script.js"></script>
+</body>
+</html>
