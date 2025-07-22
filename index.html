@@ -7,17 +7,20 @@
 </head>
 <body>
   <h1>Rotate the Rune Rings</h1>
+
   <div class="puzzle-container">
-    <img src="background.png" class="background">
-    <img src="ring1.png" id="ring1" class="ring">
-    <img src="ring2.png" id="ring2" class="ring">
-    <img src="ring3.png" id="ring3" class="ring">
+    <!-- Optional background -->
+    <img src="images/background.png" class="background" alt="Puzzle Background">
+
+    <!-- Runes and rings -->
+    <img src="images/ring1.png" id="ring1" class="ring" alt="Ring 1">
+
+    <!-- Optional static rune in center -->
+    <img src="images/rune1.png" id="rune1" class="rune-image" alt="Center Rune">
   </div>
 
   <div class="controls">
     <button onclick="rotateRing('ring1')">Rotate Outer Ring</button>
-    <button onclick="rotateRing('ring2')">Rotate Middle Ring</button>
-    <button onclick="rotateRing('ring3')">Rotate Inner Ring</button>
   </div>
 
   <p id="result"></p>
