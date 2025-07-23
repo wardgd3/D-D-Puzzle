@@ -49,7 +49,7 @@ function resetPuzzle() {
   ringStates.ring1 = 0;
   ringStates.ring2 = 0;
 
-  // Reset ring visuals
+  // Reset visuals
   const ring1 = document.getElementById('ring1');
   const ring2 = document.getElementById('ring2');
 
@@ -58,18 +58,26 @@ function resetPuzzle() {
   ring2.style.transition = 'none';
   ring2.style.transform = `rotate(0deg)`;
 
-  // Reflow, then re-enable transitions
   void ring1.offsetWidth;
   void ring2.offsetWidth;
 
   ring1.style.transition = 'transform 0.4s ease-in-out';
   ring2.style.transition = 'transform 0.4s ease-in-out';
 
-  // Reset degree displays
+  // Reset degrees
   document.getElementById('ring1-degrees').textContent = "0°";
   document.getElementById('ring2-degrees').textContent = "0°";
 
-  // Clear result text
-  document.getElementById('result').textContent = "";
+  // Clear result
+  const result = document.getElementById('result');
+  if (result) {
+    result.textContent = "";
+    result.innerHTML = "";   // <- Just in case something else filled it
+    result.style.color = ""; // Clear previous styles
+    result.removeAttribute("class"); // If a class was used for color or animation
+  } else {
+    console.warn("Result element not found.");
+  }
 }
+
 
