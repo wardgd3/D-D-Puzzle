@@ -3,17 +3,73 @@ const ringStates = {
   ring2: 0
 };
 
-function rotateRing(id) {
-  ringStates[id] = (ringStates[id] + 30) % 360;
-  const element = document.getElementById(id);
-  element.style.transform = `rotate(${ringStates[id]}deg)`;
-}
+function rotateRing(id, direction = 'right') {
+  const increment = 30;
+  const delta = direction === 'left' ? -increment : increment;
 
-function checkSolution() {
-  // Set your desired correct angles here
-  if (ringStates.ring1 === 90 && ringStates.ring2 === 180) {
-    document.getElementById('result').textContent = "✅ The mechanism unlocks!";
-  } else {
-    document.getElementById('result').textContent = "";
+  ringStates[id] += delta;
+
+  const element = document.getElementById(id);
+
+  // Animate properly
+  element.style.transition = 'none';
+  element.style.transform = `rotate(${ringStates[id] - delta}deg)`;
+  void element.offsetWidth;
+  element.style.transition = 'transform 0.4s ease-in-out';
+  element.style.transform = `rotate(${ringStates[id]}deg)`;
+
+  // Update rotation display text
+  const display = document.getElementById(`${id}-degrees`);
+  if (display) {
+    const normalized = ((ringStates[id] % 360) + 360) % 360; // Always 0–359
+    display.textContent = `${normalized}°`;
   }
 }
+
+
+
+
+function checkSolution() {
+  const r1 = ((ringStates.ring1 % 360) + 360) % 360;
+  const r2 = ((ringStates.ring2 % 360) + 360) % 360;
+
+  const result = document.getElementById('result');
+
+  if (r1 === 120 && r2 === 180) {
+    result.textContent = "✅ Correct!";
+    result.style.color = "#9fef9f"; // light green
+  } else {
+    result.textContent = "❌ Incorrect!";
+    result.style.color = "#ffaaaa"; // light red
+  }
+}
+
+function resetPuzzle() {
+  // Reset internal state
+  ringStates.ring1 = 0;
+  ringStates.ring2 = 0;
+
+  // Reset ring visuals
+  const ring1 = document.getElementById('ring1');
+  const ring2 = document.getElementById('ring2');
+
+  ring1.style.transition = 'none';
+  ring1.style.transform = `rotate(0deg)`;
+  ring2.style.transition = 'none';
+  ring2.style.transform = `rotate(0deg)`;
+
+  // Reflow, then re-enable transitions
+  void ring1.offsetWidth;
+  void ring2.offsetWidth;
+
+  ring1.style.transition = 'transform 0.4s ease-in-out';
+  ring2.style.transition = 'transform 0.4s ease-in-out';
+
+  // Reset degree displays
+  document.getElementById('ring1-degrees').textContent = "0°";
+  document.getElementById('ring2-degrees').textContent = "0°";
+
+  // Clear result text
+  document.getElementById('result').textContent = "";
+}
+

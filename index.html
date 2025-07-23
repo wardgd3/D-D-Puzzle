@@ -6,30 +6,45 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Unlock the Rune Mechanism</h1>
 
-<div class="puzzle-row">
+  <div class="puzzle-row">
+    <!-- Left Side -->
+    <!-- Left Side -->
+<div class="puzzle-column">
   <div class="puzzle-container">
     <img src="images/indicator.png" class="arrow-indicator" alt="Arrow">
     <img src="images/circle left.png" class="center-circle" alt="Left Center">
     <img src="images/ring.png" id="ring1" class="ring" alt="Left Ring">
   </div>
+  <div class="button-group">
+    <button onclick="rotateRing('ring1', 'left')">⟲ Left</button>
+    <button onclick="rotateRing('ring1', 'right')">⟳ Right</button>
+  </div>
+  <p id="ring1-degrees" class="rotation-text">0°</p> <!-- 🔄 Live text -->
+</div>
+
+<!-- Right Side -->
+<div class="puzzle-column">
   <div class="puzzle-container">
     <img src="images/indicator.png" class="arrow-indicator" alt="Arrow">
     <img src="images/circle right.png" class="center-circle" alt="Right Center">
     <img src="images/ring.png" id="ring2" class="ring" alt="Right Ring">
   </div>
+  <div class="button-group">
+    <button onclick="rotateRing('ring2', 'left')">⟲ Left</button>
+    <button onclick="rotateRing('ring2', 'right')">⟳ Right</button>
+  </div>
+  <p id="ring2-degrees" class="rotation-text">0°</p> <!-- 🔄 Live text -->
 </div>
 
-
-
-  <div class="controls">
-    <button onclick="rotateRing('ring1')">Rotate Left Ring</button>
-    <button onclick="rotateRing('ring2')">Rotate Right Ring</button>
-    <button onclick="checkSolution()">Check Solution</button>
   </div>
 
-  <p id="result"></p>
+  <!-- Solution Button -->
+  <div class="controls">
+    <p id="result"></p>
+    <button class="check-button" onclick="checkSolution()">Check Solution</button>
+    <button class="reset-button" onclick="resetPuzzle()">Reset</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
