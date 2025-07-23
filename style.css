@@ -36,8 +36,8 @@ h1 {
 
 .center-circle {
   position: absolute;
-  width: 60%;
-  height: 60%;
+  width: 40%;
+  height: 40%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
