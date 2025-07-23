@@ -1,36 +1,48 @@
 body {
   background: #111;
   color: white;
-  text-align: center;
   font-family: serif;
+  text-align: center;
+  padding: 30px;
+}
+
+h1 {
+  margin-bottom: 40px;
+}
+
+.puzzle-row {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
 }
 
 .puzzle-container {
   position: relative;
-  width: 500px;
-  height: 500px;
-  margin: 0 auto;
+  width: 400px;
+  height: 400px;
 }
 
-.ring, .background {
+.ring, .center-circle {
   position: absolute;
   top: 0;
   left: 0;
-  width: 500px;
-  height: 500px;
+  width: 400px;
+  height: 400px;
   pointer-events: none;
-}
-
-.controls {
-  margin-top: 20px;
-}
-
-button {
-  margin: 5px;
-  padding: 10px;
 }
 
 .ring {
   transition: transform 0.4s ease-in-out;
   transform-origin: center center;
+}
+
+.controls {
+  margin-top: 40px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
 }

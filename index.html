@@ -6,21 +6,26 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Rotate the Rune Rings</h1>
+  <h1>Unlock the Rune Mechanism</h1>
 
-  <div class="puzzle-container">
-    <!-- Optional background -->
-    <img src="images/background.png" class="background" alt="Puzzle Background">
+  <div class="puzzle-row">
+    <!-- Left Puzzle -->
+    <div class="puzzle-container">
+      <img src="images/ring.png" id="ring1" class="ring" alt="Ring 1">
+      <img src="images/circle left.png" class="center-circle" alt="Left Center Circle">
+    </div>
 
-    <!-- Runes and rings -->
-    <img src="images/ring1.png" id="ring1" class="ring" alt="Ring 1">
-
-    <!-- Optional static rune in center -->
-    <img src="images/rune1.png" id="rune1" class="rune-image" alt="Center Rune">
+    <!-- Right Puzzle -->
+    <div class="puzzle-container">
+      <img src="images/ring.png" id="ring2" class="ring" alt="Ring 2">
+      <img src="images/circle right.png" class="center-circle" alt="Right Center Circle">
+    </div>
   </div>
 
   <div class="controls">
-    <button onclick="rotateRing('ring1')">Rotate Outer Ring</button>
+    <button onclick="rotateRing('ring1')">Rotate Left Ring</button>
+    <button onclick="rotateRing('ring2')">Rotate Right Ring</button>
+    <button onclick="checkSolution()">Check Solution</button>
   </div>
 
   <p id="result"></p>
