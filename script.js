@@ -21,10 +21,19 @@ function rotateRing(id, direction = 'right') {
   // Update rotation display text
   const display = document.getElementById(`${id}-degrees`);
   if (display) {
-    const normalized = ((ringStates[id] % 360) + 360) % 360; // Always 0–359
+    const normalized = ((ringStates[id] % 360) + 360) % 360;
     display.textContent = `${normalized}°`;
   }
+
+  // 🔊 Play rotation sound
+  const rotateSound = document.getElementById('rotate-sound');
+  if (rotateSound) {
+    rotateSound.currentTime = 0;
+    rotateSound.volume = 0.2; // optional volume adjustment
+    rotateSound.play().catch(err => console.warn("Autoplay blocked:", err));
+  }
 }
+
 
 
 
