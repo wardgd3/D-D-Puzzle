@@ -3,7 +3,7 @@ body {
   color: white;
   font-family: serif;
   text-align: center;
-  padding: 30px;
+  padding: 40px;
 }
 
 h1 {
@@ -13,7 +13,7 @@ h1 {
 .puzzle-row {
   display: flex;
   justify-content: center;
-  gap: 60px;
+  gap: 80px;
   flex-wrap: wrap;
 }
 
@@ -23,16 +23,9 @@ h1 {
   height: 400px;
 }
 
-.ring, .center-circle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 400px;
-  height: 400px;
-  pointer-events: none;
-}
-
 .ring {
+  width: 100%;
+  height: 100%;
   transition: transform 0.4s ease-in-out;
   transform-origin: center center;
 }
@@ -45,4 +38,5 @@ button {
   margin: 10px;
   padding: 10px 20px;
   font-size: 16px;
+  cursor: pointer;
 }

@@ -10,7 +10,7 @@ function rotateRing(id) {
 }
 
 function checkSolution() {
-  // Adjust solution to your desired angles
+  // Set your desired correct angles here
   if (ringStates.ring1 === 90 && ringStates.ring2 === 270) {
     document.getElementById('result').textContent = "✅ The mechanism unlocks!";
   } else {
