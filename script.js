@@ -34,15 +34,19 @@ function checkSolution() {
   const r2 = ((ringStates.ring2 % 360) + 360) % 360;
 
   const result = document.getElementById('result');
+  if (!result) return;
+
+  result.style.display = "block"; // 🔑 Ensure it's visible again
 
   if (r1 === 120 && r2 === 180) {
     result.textContent = "✅ Correct!";
-    result.style.color = "#9fef9f"; // light green
+    result.style.color = "#9fef9f";
   } else {
     result.textContent = "❌ Incorrect!";
-    result.style.color = "#ffaaaa"; // light red
+    result.style.color = "#ffaaaa";
   }
 }
+
 
 function resetPuzzle() {
   // Reset internal state
@@ -64,20 +68,20 @@ function resetPuzzle() {
   ring1.style.transition = 'transform 0.4s ease-in-out';
   ring2.style.transition = 'transform 0.4s ease-in-out';
 
-  // Reset degrees
-  document.getElementById('ring1-degrees').textContent = "0°";
-  document.getElementById('ring2-degrees').textContent = "0°";
+  // Reset degree display text
+  const d1 = document.getElementById('ring1-degrees');
+  const d2 = document.getElementById('ring2-degrees');
+  if (d1) d1.textContent = "0°";
+  if (d2) d2.textContent = "0°";
 
-  // Clear result
+  // Clear result text
   const result = document.getElementById('result');
   if (result) {
     result.textContent = "";
-    result.innerHTML = "";   // <- Just in case something else filled it
-    result.style.color = ""; // Clear previous styles
-    result.removeAttribute("class"); // If a class was used for color or animation
-  } else {
-    console.warn("Result element not found.");
+    result.style.color = "";
+    result.style.display = "none"; // 🔑 Hide the element visually
   }
 }
+
 
 
