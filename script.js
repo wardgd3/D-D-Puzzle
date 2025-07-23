@@ -34,18 +34,71 @@ function checkSolution() {
   const r2 = ((ringStates.ring2 % 360) + 360) % 360;
 
   const result = document.getElementById('result');
-  if (!result) return;
+  const incorrectFlash = document.getElementById('incorrect-flash');
+  const overlay = document.getElementById('dark-overlay');
 
-  result.style.display = "block"; // 🔑 Ensure it's visible again
+  result.style.display = "block";
 
   if (r1 === 120 && r2 === 180) {
-    result.textContent = "✅ Correct!";
-    result.style.color = "#9fef9f";
-  } else {
-    result.textContent = "❌ Incorrect!";
-    result.style.color = "#ffaaaa";
+  result.textContent = "";
+  result.style.color = "";
+
+  const unlockSound = document.getElementById('unlock-sound');
+  if (unlockSound) {
+    unlockSound.currentTime = 0;
+    unlockSound.play().catch(err => console.warn("Autoplay blocked:", err));
+  }
+
+  const ring1 = document.getElementById('ring1');
+  const ring2 = document.getElementById('ring2');
+  const gear  = document.getElementById('gear');
+
+  [ring1, ring2, gear].forEach(el => {
+    if (el) {
+      el.classList.remove('unlock-anim');
+      void el.offsetWidth;
+      el.classList.add('unlock-anim');
+    }
+  });
+
+  // 🔓 Show unlocked image and overlay
+  const unlockedImg = document.getElementById('unlocked-image');
+  const overlay = document.getElementById('overlay');
+  if (unlockedImg && overlay) {
+    unlockedImg.classList.add('show');
+    overlay.classList.add('active');
+
+    setTimeout(() => {
+      unlockedImg.classList.remove('show');
+      overlay.classList.remove('active');
+    }, 2000); // 2 seconds display time
   }
 }
+ else {
+  // ❌ Incorrect – show PNG + fade background
+  const incorrectSound = document.getElementById('incorrect-sound');
+  if (incorrectSound) {
+    incorrectSound.volume = 0.5;
+    incorrectSound.currentTime = 0;
+    incorrectSound.play().catch(err => console.warn("Autoplay blocked:", err));
+  }
+
+  overlay.classList.add("show");
+  incorrectFlash.classList.add("show");
+
+  setTimeout(() => {
+    incorrectFlash.classList.remove("show");
+    overlay.classList.remove("show");
+    resetPuzzle();
+  }, 1200);
+}
+
+}
+
+
+
+
+
 
 
 function resetPuzzle() {

@@ -14,7 +14,7 @@
   <div class="puzzle-container">
     <img src="images/indicator.png" class="arrow-indicator" alt="Arrow">
     <img src="images/circle left.png" class="center-circle" alt="Left Center">
-    <img src="images/ring.png" id="ring1" class="ring" alt="Left Ring">
+    <img src="images/ring2.png" id="ring1" class="ring" alt="Left Ring">
   </div>
   <div class="button-group">
     <button onclick="rotateRing('ring1', 'left')">⟲ Left</button>
@@ -23,12 +23,18 @@
   <!--<p id="ring1-degrees" class="rotation-text">0°</p>  -->
 </div>
 
+<!-- Between the two puzzle columns -->
+<div class="gear-wrapper">
+  <img src="images/gear.png" id="gear" class="gear-icon" alt="Gear">
+</div>
+
+
 <!-- Right Side -->
 <div class="puzzle-column">
   <div class="puzzle-container">
     <img src="images/indicator.png" class="arrow-indicator" alt="Arrow">
     <img src="images/circle right.png" class="center-circle" alt="Right Center">
-    <img src="images/ring.png" id="ring2" class="ring" alt="Right Ring">
+    <img src="images/ring2.png" id="ring2" class="ring" alt="Right Ring">
   </div>
   <div class="button-group">
     <button onclick="rotateRing('ring2', 'left')">⟲ Left</button>
@@ -46,7 +52,17 @@
   </div>
 
   <p id="result"></p>
+  
+  <div id="dark-overlay" class="dark-overlay"></div>
+  <img src="images/incorrect.png" id="incorrect-flash" class="incorrect-flash" alt="Incorrect Feedback">
+  
+  <!--<img id="unlocked-image" src="images/unlockedlock.png" class="feedback-image" alt="Unlocked Lock">-->
+
+
+  <audio id="unlock-sound" src="audio/unlock.mp3" preload="auto"></audio>
+  <audio id="incorrect-sound" src="audio/incorrect.mp3" preload="auto"></audio>
 
   <script src="script.js"></script>
+
 </body>
 </html>
