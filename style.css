@@ -10,6 +10,17 @@ h1 {
   margin-bottom: 40px;
 }
 
+.arrow-indicator {
+  position: absolute;
+  top: -40px; /* adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: auto;
+  z-index: 3;
+  pointer-events: none;
+}
+
 .puzzle-row {
   display: flex;
   justify-content: center;
@@ -36,8 +47,8 @@ h1 {
 
 .center-circle {
   position: absolute;
-  width: 40%;
-  height: 40%;
+  width: 47%;
+  height: 47%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
