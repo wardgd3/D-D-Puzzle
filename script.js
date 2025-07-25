@@ -53,10 +53,23 @@ function checkSolution() {
   result.style.color = "";
 
   const unlockSound = document.getElementById('unlock-sound');
-  if (unlockSound) {
-    unlockSound.currentTime = 0;
-    unlockSound.play().catch(err => console.warn("Autoplay blocked:", err));
+const lockUnlockSound = document.getElementById('lockUnlock-sound');
+
+if (unlockSound) {
+  unlockSound.volume = 0.5;
+  unlockSound.currentTime = 0;
+  unlockSound.play().catch(err => console.warn("Autoplay blocked:", err));
+
+  // ⏱️ Play the second sound after 1 second
+  if (lockUnlockSound) {
+    setTimeout(() => {
+      lockUnlockSound.volume = 0.7;
+      lockUnlockSound.currentTime = 0;
+      lockUnlockSound.play().catch(err => console.warn("Autoplay blocked:", err));
+    }, 4900);
   }
+}
+
 
   const ring1 = document.getElementById('ring1');
   const ring2 = document.getElementById('ring2');
