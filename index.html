@@ -52,7 +52,7 @@
   <!-- Solution Button -->
   <div class="controls">
     <button class="check-button" onclick="checkSolution()">Unlock</button>
-    <button class="reset-button" onclick="resetPuzzle()">Reset</button>
+    <button class="reset-button" onclick="location.reload()">Reset</button>
   </div>
 
   <p id="result"></p>
@@ -68,6 +68,13 @@
   <audio id="rotate-sound" src="audio/rotate.mp3" preload="auto"></audio>
   <audio id="lockUnlock-sound" src="audio/lockUnlock.mp3" preload="auto"></audio>
 
+<div id="end-screen" class="end-screen">
+  <div class="end-screen-content">
+    <img src="images/unlockedlock.png" class="lock-png">
+    <h1>Success</h1>
+   
+  </div>
+</div>
 
 
   <script src="script.js"></script>

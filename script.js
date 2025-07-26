@@ -35,9 +35,6 @@ function rotateRing(id, direction = 'right') {
 }
 
 
-
-
-
 function checkSolution() {
   const r1 = ((ringStates.ring1 % 360) + 360) % 360;
   const r2 = ((ringStates.ring2 % 360) + 360) % 360;
@@ -63,7 +60,7 @@ if (unlockSound) {
   // ⏱️ Play the second sound after 1 second
   if (lockUnlockSound) {
     setTimeout(() => {
-      lockUnlockSound.volume = 0.7;
+      lockUnlockSound.volume = 0.4;
       lockUnlockSound.currentTime = 0;
       lockUnlockSound.play().catch(err => console.warn("Autoplay blocked:", err));
     }, 4900);
@@ -82,6 +79,25 @@ if (unlockSound) {
       el.classList.add('unlock-anim');
     }
   });
+
+  // Fade in end screen after the 5s unlock animation
+setTimeout(() => {
+  const endScreen = document.getElementById('end-screen');
+  endScreen.classList.add('show');
+
+  // Fade out after 2 seconds
+  setTimeout(() => {
+    endScreen.classList.add('hide');
+    endScreen.classList.remove('show');
+  }, 2000);
+
+  // (Optional) Hide completely after fade-out
+  setTimeout(() => {
+    endScreen.style.display = 'none';
+  }, 3000); // 1s for fade-out
+}, 5000);
+
+
 
   // 🔓 Show unlocked image and overlay
   const unlockedImg = document.getElementById('unlocked-image');
@@ -112,7 +128,7 @@ if (unlockSound) {
     incorrectFlash.classList.remove("show");
     overlay.classList.remove("show");
     resetPuzzle();
-  }, 1200);
+  }, 1900);
 }
 
 }

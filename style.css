@@ -203,6 +203,73 @@ button:active {
   transform: translate(-50%, -50%) scale(1.4);
 }
 
+.end-screen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(10, 10, 10, 0.92);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+  z-index: 10000;
+}
+
+.end-screen.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+.end-screen.hide {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+.end-screen-content {
+  text-align: center;
+  color: #f0e5c3;
+}
+
+.lock-png {
+  width: 225px;
+  height: auto;
+  margin-bottom: 5px;
+  margin-top: 0;
+  display: block;
+  transform: rotate(-28deg) translateX(50px); /* Negative for a slight leftward tilt, positive X to push right */
+}
+
+
+.end-screen-content h1 {
+  font-size: 7rem;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+  position: relative;
+  top: -30px;
+}
+
+.end-screen-content button {
+  background: linear-gradient(to bottom, #6a4b24, #3b2d1b);
+  color: #f0e5c3;
+  border: 2px solid #a07942;
+  border-radius: 8px;
+  padding: 16px 28px;
+  font-size: 1.5rem;
+  font-family: serif;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+  transition: all 0.2s;
+}
+.end-screen-content button:hover {
+  background: linear-gradient(to bottom, #7d5d30, #4a3823);
+  color: #fff5d9;
+  transform: scale(1.08);
+}
+
+
+
 
 
 
